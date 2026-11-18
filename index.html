@@ -1,0 +1,1565 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#fff8f5">
+<meta name="description" content="THE ART OF MAKEUP — Master your techniques, refine your skills and elevate your beauty.">
+<title>THE ART OF MAKEUP | Elevate Your Beauty</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cream:#fff8f5;
+  --cream2:#f9eee9;
+  --pink:#e7a4ad;
+  --rose:#c77f96;
+  --dark:#291b20;
+  --gold:#c49a68;
+  --muted:#806b6d;
+  --white:#fffdfc;
+  --shadow:0 25px 70px rgba(76,35,45,.13);
+}
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html {
+  scroll-behavior:smooth;
+  scroll-padding-top:90px;
+}
+
+body {
+  font-family:'DM Sans',sans-serif;
+  color:var(--dark);
+  background:var(--cream);
+  overflow-x:hidden;
+}
+
+a { text-decoration:none; color:inherit; }
+button { font:inherit; }
+
+::selection {
+  background:var(--pink);
+  color:white;
+}
+
+/* CUSTOM CURSOR */
+
+.cursor, .cursor-ring {
+  position:fixed;
+  top:0;
+  left:0;
+  pointer-events:none;
+  z-index:9999;
+  border-radius:50%;
+  transform:translate(-50%,-50%);
+}
+
+.cursor {
+  width:7px;
+  height:7px;
+  background:var(--rose);
+}
+
+.cursor-ring {
+  width:35px;
+  height:35px;
+  border:1px solid rgba(199,127,150,.6);
+  transition:width .2s,height .2s;
+}
+
+@media(pointer:coarse) {
+  .cursor,.cursor-ring { display:none; }
+}
+
+/* BACKGROUND */
+
+.background-glow {
+  position:fixed;
+  inset:0;
+  z-index:-2;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 12% 15%,rgba(231,164,173,.17),transparent 27%),
+    radial-gradient(circle at 88% 65%,rgba(196,154,104,.11),transparent 27%),
+    var(--cream);
+}
+
+#particles {
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+}
+
+/* NAVIGATION */
+
+nav {
+  height:86px;
+  width:100%;
+  padding:0 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:fixed;
+  top:0;
+  z-index:100;
+  background:rgba(255,248,245,.78);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(199,127,150,.12);
+}
+
+.logo {
+  font-family:'Playfair Display',serif;
+  font-size:24px;
+  letter-spacing:2px;
+  font-weight:600;
+}
+
+.logo span { color:var(--rose); }
+
+.nav-links {
+  display:flex;
+  align-items:center;
+  gap:35px;
+  list-style:none;
+  font-size:12px;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+}
+
+.nav-links a {
+  transition:color .3s;
+}
+
+.nav-links a:hover { color:var(--rose); }
+
+.nav-buy {
+  padding:13px 23px;
+  background:var(--dark);
+  color:white;
+  border-radius:3px;
+  transition:.3s;
+}
+
+.nav-buy:hover {
+  background:var(--rose);
+  transform:translateY(-3px);
+}
+
+.menu-toggle {
+  display:none;
+  background:none;
+  border:0;
+  font-size:25px;
+  color:var(--dark);
+}
+
+/* GENERAL */
+
+section {
+  padding:110px 8%;
+  position:relative;
+}
+
+.eyebrow {
+  font-size:10px;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  color:var(--rose);
+  font-weight:700;
+}
+
+.section-title {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(38px,5vw,67px);
+  line-height:1.1;
+  font-weight:400;
+}
+
+.section-title span { color:var(--rose); }
+
+.section-intro {
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.9;
+  max-width:530px;
+  margin-top:20px;
+}
+
+/* BUTTONS */
+
+.button {
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  gap:12px;
+  padding:17px 29px;
+  border:1px solid var(--dark);
+  background:var(--dark);
+  color:white;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-size:10px;
+  position:relative;
+  overflow:hidden;
+  transition:transform .3s,box-shadow .3s,background .3s;
+  transform-style:preserve-3d;
+}
+
+.button::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(110deg,transparent,rgba(255,255,255,.25),transparent);
+  transform:translateX(-120%);
+  transition:transform .7s;
+}
+
+.button:hover::before { transform:translateX(120%); }
+
+.button:hover {
+  background:var(--rose);
+  border-color:var(--rose);
+  transform:translateY(-5px);
+  box-shadow:0 15px 35px rgba(199,127,150,.3);
+}
+
+.button-light {
+  background:transparent;
+  color:var(--dark);
+}
+
+.button-light:hover { color:white; }
+
+/* HERO */
+
+.hero {
+  min-height:100vh;
+  padding-top:150px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:45px;
+  overflow:hidden;
+}
+
+.hero-copy { position:relative; z-index:2; }
+
+.hero h1 {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(60px,8.3vw,115px);
+  line-height:.96;
+  font-weight:400;
+  margin:25px 0;
+  letter-spacing:-4px;
+}
+
+.hero h1 span {
+  color:var(--rose);
+  display:block;
+  font-style:italic;
+}
+
+.hero-description {
+  color:var(--muted);
+  max-width:430px;
+  font-size:14px;
+  line-height:2;
+  margin-bottom:32px;
+}
+
+.hero-buttons {
+  display:flex;
+  flex-wrap:wrap;
+  gap:13px;
+}
+
+.hero-note {
+  margin-top:32px;
+  color:var(--muted);
+  font-size:10px;
+  letter-spacing:2px;
+}
+
+.hero-visual {
+  min-height:570px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  perspective:1200px;
+  position:relative;
+}
+
+.hero-orbit {
+  width:430px;
+  height:430px;
+  border:1px solid rgba(199,127,150,.23);
+  border-radius:50%;
+  position:absolute;
+  animation:orbit 24s linear infinite;
+}
+
+.hero-orbit::before,.hero-orbit::after {
+  content:"";
+  position:absolute;
+  width:13px;
+  height:13px;
+  border-radius:50%;
+  background:var(--gold);
+  box-shadow:0 0 20px rgba(196,154,104,.5);
+}
+
+.hero-orbit::before { top:45px; left:55px; }
+.hero-orbit::after { bottom:65px; right:35px; }
+
+@keyframes orbit {
+  to { transform:rotate(360deg); }
+}
+
+/* 3D BOOK */
+
+.book-scene {
+  width:310px;
+  height:430px;
+  position:relative;
+  perspective:1400px;
+  z-index:2;
+}
+
+.book {
+  position:absolute;
+  inset:0;
+  transform-style:preserve-3d;
+  transform:rotateY(-22deg) rotateX(4deg);
+  transition:transform .18s ease-out;
+  animation:bookFloat 6s ease-in-out infinite;
+}
+
+@keyframes bookFloat {
+  0%,100% { translate:0 0; }
+  50% { translate:0 -17px; }
+}
+
+.book-cover {
+  position:absolute;
+  inset:0;
+  border:1px solid #e3c5b7;
+  border-radius:3px 9px 9px 3px;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.5),transparent 55%),
+    linear-gradient(135deg,#fff8f3,#edc8c1 75%,#e7b7b0);
+  box-shadow:
+    18px 20px 35px rgba(65,32,35,.19),
+    inset -8px 0 15px rgba(125,70,70,.08);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:space-between;
+  padding:35px 23px;
+  overflow:hidden;
+  transform:translateZ(18px);
+}
+
+.book-cover::before {
+  content:"";
+  position:absolute;
+  inset:12px;
+  border:1px solid rgba(196,154,104,.75);
+  pointer-events:none;
+}
+
+.book-cover::after {
+  content:"";
+  position:absolute;
+  width:250px;
+  height:250px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.4),transparent 70%);
+  top:90px;
+  left:20px;
+}
+
+.book-small {
+  font-size:8px;
+  letter-spacing:3px;
+  text-align:center;
+  z-index:1;
+}
+
+.book-title {
+  font-family:'Playfair Display',serif;
+  font-size:42px;
+  text-align:center;
+  line-height:1;
+  z-index:1;
+}
+
+.book-title span {
+  display:block;
+  color:#bd7580;
+  font-size:52px;
+}
+
+.book-art {
+  width:170px;
+  height:125px;
+  object-fit:cover;
+  border-radius:50%;
+  mix-blend-mode:multiply;
+  opacity:.9;
+  z-index:1;
+}
+
+.book-subtitle {
+  font-family:'Playfair Display',serif;
+  font-size:13px;
+  text-align:center;
+  z-index:1;
+}
+
+.book-spine {
+  position:absolute;
+  width:36px;
+  height:100%;
+  left:-36px;
+  top:0;
+  transform-origin:right;
+  transform:rotateY(-90deg);
+  background:linear-gradient(90deg,#c99a8f,#f3d9cf,#c58f85);
+  border:1px solid #d3aaa0;
+}
+
+.book-pages {
+  position:absolute;
+  width:35px;
+  height:98%;
+  right:-17px;
+  top:1%;
+  transform:rotateY(90deg);
+  transform-origin:left;
+  background:repeating-linear-gradient(90deg,#fff,#fff 2px,#e7d9d0 3px);
+}
+
+.book-shadow {
+  position:absolute;
+  width:330px;
+  height:50px;
+  background:rgba(88,48,53,.18);
+  filter:blur(25px);
+  border-radius:50%;
+  bottom:-50px;
+  left:-10px;
+  animation:shadowPulse 6s ease-in-out infinite;
+}
+
+@keyframes shadowPulse {
+  50% { transform:scale(.8); opacity:.5; }
+}
+
+/* FLOATING DECORATIONS */
+
+.float-item {
+  position:absolute;
+  font-family:'Playfair Display',serif;
+  color:var(--gold);
+  animation:float 5s ease-in-out infinite;
+  pointer-events:none;
+}
+
+.float-one { top:12%; left:12%; font-size:38px; }
+.float-two { bottom:15%; right:9%; font-size:29px; animation-delay:1s; }
+.float-three { top:20%; right:8%; font-size:18px; animation-delay:2s; }
+
+@keyframes float {
+  0%,100% { transform:translateY(0) rotate(0deg); }
+  50% { transform:translateY(-22px) rotate(12deg); }
+}
+
+/* TRUST STRIP */
+
+.trust-strip {
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  gap:25px;
+  padding:28px 7%;
+  background:#f3e5df;
+  flex-wrap:wrap;
+}
+
+.trust-item {
+  font-size:10px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:#765e61;
+}
+
+/* ABOUT */
+
+.about {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:90px;
+}
+
+.about-image {
+  height:520px;
+  position:relative;
+  perspective:900px;
+}
+
+.about-image img {
+  width:85%;
+  height:100%;
+  object-fit:cover;
+  border-radius:3px;
+  box-shadow:var(--shadow);
+  transform:rotateY(8deg) rotateX(2deg);
+  transition:transform .6s;
+}
+
+.about-image:hover img {
+  transform:rotateY(0) rotateX(0) scale(1.025);
+}
+
+.image-caption {
+  position:absolute;
+  bottom:35px;
+  right:0;
+  background:var(--white);
+  padding:22px 25px;
+  box-shadow:var(--shadow);
+  font-family:'Playfair Display',serif;
+  font-size:20px;
+}
+
+/* FEATURES */
+
+.features {
+  background:#f8eeea;
+  text-align:center;
+}
+
+.features .section-intro {
+  margin:20px auto 55px;
+}
+
+.feature-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+
+.feature-card {
+  min-height:235px;
+  padding:35px 27px;
+  background:rgba(255,255,255,.67);
+  border:1px solid rgba(199,127,150,.16);
+  text-align:left;
+  transform-style:preserve-3d;
+  transition:transform .2s,box-shadow .3s;
+  position:relative;
+  overflow:hidden;
+}
+
+.feature-card::after {
+  content:"";
+  position:absolute;
+  width:150px;
+  height:150px;
+  right:-75px;
+  bottom:-75px;
+  border-radius:50%;
+  background:rgba(231,164,173,.14);
+}
+
+.feature-card:hover {
+  box-shadow:0 25px 50px rgba(76,35,45,.11);
+}
+
+.feature-number {
+  color:var(--gold);
+  font-family:'Playfair Display',serif;
+  font-size:32px;
+}
+
+.feature-card h3 {
+  font-family:'Playfair Display',serif;
+  font-size:22px;
+  font-weight:400;
+  margin:22px 0 12px;
+}
+
+.feature-card p {
+  font-size:12px;
+  color:var(--muted);
+  line-height:1.8;
+}
+
+/* LEARNING SECTION */
+
+.learning {
+  text-align:center;
+}
+
+.learning-grid {
+  margin-top:55px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:17px;
+}
+
+.learning-card {
+  padding:28px 20px;
+  border:1px solid rgba(199,127,150,.22);
+  background:rgba(255,255,255,.55);
+  transition:.35s;
+  transform-style:preserve-3d;
+}
+
+.learning-card:hover {
+  background:white;
+  transform:translateY(-9px) rotateX(4deg);
+  box-shadow:var(--shadow);
+}
+
+.learning-card span {
+  font-size:27px;
+  color:var(--rose);
+}
+
+.learning-card h3 {
+  font-family:'Playfair Display',serif;
+  font-size:17px;
+  font-weight:400;
+  margin-top:14px;
+}
+
+.learning-card p {
+  font-size:11px;
+  line-height:1.8;
+  color:var(--muted);
+  margin-top:9px;
+}
+
+/* PRODUCT SECTION */
+
+.product-section {
+  background:var(--dark);
+  color:white;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:75px;
+  overflow:hidden;
+}
+
+.product-section .section-intro { color:#c8b6b9; }
+.product-section .eyebrow { color:#e3b4b4; }
+
+.product-visual {
+  min-height:480px;
+  display:grid;
+  place-items:center;
+  perspective:1300px;
+}
+
+.product-visual .book-scene {
+  transform:scale(.92);
+}
+
+.product-details h2 {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(42px,5vw,65px);
+  font-weight:400;
+  line-height:1.1;
+  margin:22px 0;
+}
+
+.product-price {
+  font-family:'Playfair Display',serif;
+  font-size:53px;
+  color:#e8b8b9;
+  margin:25px 0;
+}
+
+.product-points {
+  list-style:none;
+  margin:30px 0;
+}
+
+.product-points li {
+  padding:12px 0;
+  border-bottom:1px solid rgba(255,255,255,.12);
+  color:#e1d4d5;
+  font-size:13px;
+}
+
+.product-points li::before {
+  content:"✦";
+  color:var(--gold);
+  margin-right:13px;
+}
+
+/* FAQ */
+
+.faq {
+  max-width:850px;
+  margin:auto;
+}
+
+.faq .section-title,.faq .eyebrow { text-align:center; }
+
+.faq-list { margin-top:50px; }
+
+.faq-item {
+  border-bottom:1px solid rgba(199,127,150,.25);
+}
+
+.faq-question {
+  width:100%;
+  padding:24px 0;
+  border:0;
+  background:none;
+  color:var(--dark);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  text-align:left;
+  cursor:pointer;
+  font-family:'Playfair Display',serif;
+  font-size:19px;
+}
+
+.faq-question span:last-child {
+  color:var(--rose);
+  font-size:24px;
+  transition:transform .3s;
+}
+
+.faq-answer {
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .4s ease;
+}
+
+.faq-answer p {
+  padding:0 30px 23px 0;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.9;
+}
+
+.faq-item.active .faq-answer { max-height:180px; }
+.faq-item.active .faq-question span:last-child {
+  transform:rotate(45deg);
+}
+
+/* FINAL CTA */
+
+.final-cta {
+  text-align:center;
+  background:
+    radial-gradient(circle at 50% 100%,rgba(231,164,173,.3),transparent 50%),
+    #f6e9e4;
+  padding:120px 8%;
+}
+
+.final-cta h2 {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(45px,7vw,85px);
+  line-height:1.1;
+  font-weight:400;
+  margin:25px auto;
+  max-width:850px;
+}
+
+.final-cta h2 span {
+  color:var(--rose);
+  font-style:italic;
+}
+
+.final-cta p {
+  color:var(--muted);
+  font-size:13px;
+  margin:20px auto 30px;
+  line-height:1.8;
+}
+
+/* FOOTER */
+
+footer {
+  padding:45px 8%;
+  background:#24191d;
+  color:#f8e9e8;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:20px;
+}
+
+footer .logo { font-size:21px; }
+footer p {
+  font-size:10px;
+  color:#c6b2b6;
+  letter-spacing:1px;
+}
+
+/* SCROLL REVEAL */
+
+.reveal {
+  opacity:0;
+  transform:translateY(35px);
+  transition:opacity .8s ease,transform .8s ease;
+}
+
+.reveal.visible {
+  opacity:1;
+  transform:translateY(0);
+}
+
+.delay-1 { transition-delay:.12s; }
+.delay-2 { transition-delay:.24s; }
+.delay-3 { transition-delay:.36s; }
+
+/* RESPONSIVE */
+
+@media(max-width:950px) {
+  .hero { grid-template-columns:1fr; text-align:center; }
+  .hero-description { margin-left:auto; margin-right:auto; }
+  .hero-buttons { justify-content:center; }
+  .hero-visual { min-height:520px; }
+  .about { gap:40px; }
+  .feature-grid { grid-template-columns:repeat(2,1fr); }
+  .learning-grid { grid-template-columns:repeat(2,1fr); }
+  .product-section { gap:25px; }
+}
+
+@media(max-width:700px) {
+  nav { height:72px; padding:0 6%; }
+  .menu-toggle { display:block; }
+  .nav-links {
+    display:none;
+    position:absolute;
+    top:72px;
+    left:0;
+    width:100%;
+    background:var(--cream);
+    padding:25px 7%;
+    flex-direction:column;
+    align-items:stretch;
+    gap:24px;
+    box-shadow:var(--shadow);
+  }
+  .nav-links.open { display:flex; }
+  .nav-buy { text-align:center; }
+  section { padding:85px 7%; }
+  .hero { padding-top:125px; }
+  .hero h1 { font-size:66px; letter-spacing:-2px; }
+  .hero-visual { min-height:470px; }
+  .book-scene { transform:scale(.78); }
+  .hero-orbit { width:320px; height:320px; }
+  .about,.product-section { grid-template-columns:1fr; }
+  .about-image { height:390px; }
+  .feature-grid { grid-template-columns:1fr; }
+  .learning-grid { grid-template-columns:repeat(2,1fr); }
+  .product-section { text-align:center; }
+  .product-visual { min-height:420px; }
+  .product-points { text-align:left; }
+  footer { flex-direction:column; text-align:center; }
+}
+
+@media(max-width:390px) {
+  .hero h1 { font-size:55px; }
+  .learning-grid { grid-template-columns:1fr; }
+  .book-scene { transform:scale(.68); }
+  .hero-visual { min-height:420px; }
+}
+
+/* ACCESSIBILITY */
+
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    scroll-behavior:auto !important;
+    transition-duration:.01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="background-glow"></div>
+<canvas id="particles"></canvas>
+<div class="cursor"></div>
+<div class="cursor-ring"></div>
+
+<!-- NAVIGATION -->
+
+<nav>
+  <a href="#home" class="logo">THE ART <span>OF</span> MAKEUP</a>
+
+  <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">Our Story</a></li>
+    <li><a href="#learn">What You'll Learn</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a class="nav-buy" href="https://hassandigital4.gumroad.com/l/nfzwuy" target="_blank" rel="noopener">Get The Guide ↗</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+  <div class="hero-copy reveal">
+    <div class="eyebrow">The Art of Beauty · The Power of Technique</div>
+
+    <h1>
+      THE ART OF
+      <span>MAKEUP.</span>
+    </h1>
+
+    <p class="hero-description">
+      Master your techniques. Refine your skills.
+      Discover new ways to express your creativity
+      through the art of makeup.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="https://hassandigital4.gumroad.com/l/nfzwuy" target="_blank" rel="noopener" class="button">
+        Explore The Guide <span>↗</span>
+      </a>
+
+      <a href="#learn" class="button button-light">
+        Discover More ↓
+      </a>
+    </div>
+
+    <div class="hero-note">
+      A DIGITAL BEAUTY GUIDE · $10
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-orbit"></div>
+    <div class="float-item float-one">✧</div>
+    <div class="float-item float-two">✦</div>
+    <div class="float-item float-three">✧</div>
+
+    <div class="book-scene" data-tilt>
+      <div class="book-shadow"></div>
+
+      <div class="book">
+        <div class="book-spine"></div>
+        <div class="book-pages"></div>
+
+        <div class="book-cover">
+          <div class="book-small">
+            MASTER YOUR TECHNIQUES
+          </div>
+
+          <div class="book-title">
+            THE ART OF
+            <span>MAKEUP</span>
+          </div>
+
+          <img class="book-art"
+            src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=700"
+            alt="Makeup brushes and cosmetics">
+
+          <div class="book-subtitle">
+            Refine Your Skills.<br>
+            Elevate Your Beauty.
+          </div>
+
+          <div class="book-small">
+            A GUIDE TO MAKEUP TECHNIQUES
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+
+<div class="trust-strip">
+  <div class="trust-item">✦ Beauty Education</div>
+  <div class="trust-item">✦ Practical Techniques</div>
+  <div class="trust-item">✦ Creative Expression</div>
+  <div class="trust-item">✦ Learn At Your Pace</div>
+</div>
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+  <div class="about-image reveal">
+    <img
+      src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=1000"
+      alt="Beauty editorial portrait">
+    <div class="image-caption">Beauty is an art.</div>
+  </div>
+
+  <div class="reveal delay-1">
+    <div class="eyebrow">A New Perspective</div>
+
+    <h2 class="section-title">
+      Beyond the basics.<br>
+      <span>Into the artistry.</span>
+    </h2>
+
+    <p class="section-intro">
+      Makeup is more than products and application.
+      It is the understanding of colour, texture,
+      technique and personal expression.
+      <br><br>
+      THE ART OF MAKEUP was created for makeup
+      enthusiasts who already know the basics and
+      want to take their skills further.
+    </p>
+
+    <br>
+
+    <a href="https://hassandigital4.gumroad.com/l/nfzwuy" target="_blank" rel="noopener" class="button">
+      Discover The Guide ↗
+    </a>
+  </div>
+</section>
+
+<!-- FEATURES -->
+
+<section class="features" id="features">
+
+  <div class="eyebrow reveal">The Experience</div>
+
+  <h2 class="section-title reveal">
+    Knowledge meets <span>creativity.</span>
+  </h2>
+
+  <p class="section-intro reveal">
+    Explore the techniques and knowledge that
+    help you develop your makeup skills.
+  </p>
+
+  <div class="feature-grid">
+
+    <article class="feature-card reveal" data-tilt>
+      <div class="feature-number">01</div>
+      <h3>Refine Your Technique</h3>
+      <p>Develop a better understanding of application, blending and makeup finishes.</p>
+    </article>
+
+    <article class="feature-card reveal delay-1" data-tilt>
+      <div class="feature-number">02</div>
+      <h3>Understand Your Products</h3>
+      <p>Explore complexion products, brushes, tools and how they work together.</p>
+    </article>
+
+    <article class="feature-card reveal delay-2" data-tilt>
+      <div class="feature-number">03</div>
+      <h3>Explore New Looks</h3>
+      <p>Discover different makeup styles and combinations for different occasions.</p>
+    </article>
+
+    <article class="feature-card reveal" data-tilt>
+      <div class="feature-number">04</div>
+      <h3>Improve Your Blending</h3>
+      <p>Understand how placement, layering and blending affect your final result.</p>
+    </article>
+
+    <article class="feature-card reveal delay-1" data-tilt>
+      <div class="feature-number">05</div>
+      <h3>Build Your Knowledge</h3>
+      <p>Learn practical techniques and identify common application mistakes.</p>
+    </article>
+
+    <article class="feature-card reveal delay-2" data-tilt>
+      <div class="feature-number">06</div>
+      <h3>Develop Your Style</h3>
+      <p>Experiment with colour, finishes and techniques to discover your preferences.</p>
+    </article>
+
+  </div>
+</section>
+
+<!-- WHAT YOU WILL LEARN -->
+
+<section class="learning" id="learn">
+
+  <div class="eyebrow reveal">Inside The Guide</div>
+
+  <h2 class="section-title reveal">
+    Every detail.<br>
+    <span>Every technique.</span>
+  </h2>
+
+  <p class="section-intro reveal" style="margin-left:auto;margin-right:auto">
+    A closer look at the makeup topics covered in
+    THE ART OF MAKEUP.
+  </p>
+
+  <div class="learning-grid">
+
+    <article class="learning-card reveal" data-tilt>
+      <span>✧</span>
+      <h3>Skin Preparation</h3>
+      <p>Understand skin prep, undertones and foundation selection.</p>
+    </article>
+
+    <article class="learning-card reveal delay-1" data-tilt>
+      <span>◈</span>
+      <h3>Complexion</h3>
+      <p>Explore concealer, colour correction and blending.</p>
+    </article>
+
+    <article class="learning-card reveal delay-2" data-tilt>
+      <span>✦</span>
+      <h3>Face Definition</h3>
+      <p>Learn contour, bronzer, blush and highlighting techniques.</p>
+    </article>
+
+    <article class="learning-card reveal delay-3" data-tilt>
+      <span>✧</span>
+      <h3>Eye Makeup</h3>
+      <p>Explore eyeshadow, colour combinations and eyeliner.</p>
+    </article>
+
+    <article class="learning-card reveal" data-tilt>
+      <span>♡</span>
+      <h3>Eyebrows</h3>
+      <p>Understand brow products, shaping and definition.</p>
+    </article>
+
+    <article class="learning-card reveal delay-1" data-tilt>
+      <span>◇</span>
+      <h3>Lip Techniques</h3>
+      <p>Discover lip preparation, liner combinations and finishes.</p>
+    </article>
+
+    <article class="learning-card reveal delay-2" data-tilt>
+      <span>✦</span>
+      <h3>Brushes & Tools</h3>
+      <p>Understand essential tools, their uses and proper hygiene.</p>
+    </article>
+
+    <article class="learning-card reveal delay-3" data-tilt>
+      <span>✧</span>
+      <h3>Long-Lasting Looks</h3>
+      <p>Learn about setting, layering and touch-up techniques.</p>
+    </article>
+
+  </div>
+</section>
+
+<!-- PRODUCT -->
+
+<section class="product-section" id="product">
+
+  <div class="product-visual reveal">
+    <div class="book-scene" data-tilt>
+      <div class="book-shadow"></div>
+
+      <div class="book">
+        <div class="book-spine"></div>
+        <div class="book-pages"></div>
+
+        <div class="book-cover">
+          <div class="book-small">MASTER YOUR TECHNIQUES</div>
+
+          <div class="book-title">
+            THE ART OF
+            <span>MAKEUP</span>
+          </div>
+
+          <img class="book-art"
+            src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=700"
+            alt="Makeup products">
+
+          <div class="book-subtitle">
+            Refine Your Skills.<br>
+            Elevate Your Beauty.
+          </div>
+
+          <div class="book-small">THE DIGITAL GUIDE</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="product-details reveal delay-1">
+
+    <div class="eyebrow">Your Next Chapter</div>
+
+    <h2>
+      Make room for<br>
+      <em>new possibilities.</em>
+    </h2>
+
+    <p class="section-intro">
+      Take your makeup knowledge further with
+      THE ART OF MAKEUP — a digital guide for
+      enthusiasts ready to refine their techniques.
+    </p>
+
+    <div class="product-price">$10</div>
+
+    <ul class="product-points">
+      <li>Digital makeup guide</li>
+      <li>Practical makeup techniques</li>
+      <li>Tips and common mistakes</li>
+      <li>Learn at your own pace</li>
+    </ul>
+
+    <a href="https://hassandigital4.gumroad.com/l/nfzwuy"
+       target="_blank" rel="noopener" class="button">
+      Get The eBook Now ↗
+    </a>
+
+  </div>
+</section>
+
+<!-- FAQ -->
+
+<section id="faq">
+  <div class="faq">
+
+    <div class="eyebrow">A Few Questions</div>
+
+    <h2 class="section-title">
+      Good to <span>know.</span>
+    </h2>
+
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Is this guide for beginners?
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          <p>
+            It is primarily designed for people who already
+            understand basic makeup application and want
+            to refine their techniques.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Is this a physical book?
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          <p>
+            No. THE ART OF MAKEUP is a digital PDF guide.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Can I read it on my phone?
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          <p>
+            Yes. You can read the PDF on a compatible
+            smartphone, tablet or computer.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          How much does it cost?
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          <p>
+            The guide is listed for $10 on our Gumroad
+            product page.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          How do I purchase it?
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          <p>
+            Click any purchase button on this website.
+            You'll be taken to our secure Gumroad product page.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+
+<section class="final-cta">
+
+  <div class="eyebrow reveal">The Art of Makeup</div>
+
+  <h2 class="reveal">
+    Your creativity deserves
+    <span>to be explored.</span>
+  </h2>
+
+  <p class="reveal">
+    Master your techniques. Refine your skills.
+    Elevate your beauty.
+  </p>
+
+  <a href="https://hassandigital4.gumroad.com/l/nfzwuy"
+     target="_blank" rel="noopener" class="button reveal">
+    Get Your Guide — $10 ↗
+  </a>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  <a href="#home" class="logo">THE ART <span>OF</span> MAKEUP</a>
+
+  <p>© 2026 THE ART OF MAKEUP. ALL RIGHTS RESERVED.</p>
+
+  <p>MADE FOR THE LOVE OF BEAUTY.</p>
+</footer>
+
+<script>
+/* CURSOR */
+
+const cursor = document.querySelector('.cursor');
+const ring = document.querySelector('.cursor-ring');
+
+let mouseX = 0, mouseY = 0;
+let ringX = 0, ringY = 0;
+
+window.addEventListener('mousemove', e => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+
+  cursor.style.left = mouseX + 'px';
+  cursor.style.top = mouseY + 'px';
+});
+
+function animateCursor() {
+  ringX += (mouseX - ringX) * .13;
+  ringY += (mouseY - ringY) * .13;
+
+  ring.style.left = ringX + 'px';
+  ring.style.top = ringY + 'px';
+
+  requestAnimationFrame(animateCursor);
+}
+animateCursor();
+
+/* MOBILE MENU */
+
+const menuButton = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+menuButton.addEventListener('click', () => {
+  const open = navLinks.classList.toggle('open');
+  menuButton.textContent = open ? '×' : '☰';
+  menuButton.setAttribute('aria-expanded', open);
+});
+
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    menuButton.textContent = '☰';
+    menuButton.setAttribute('aria-expanded', 'false');
+  });
+});
+
+/* SCROLL REVEAL */
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: .12 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+/* 3D TILT */
+
+const canHover = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (canHover && !reduceMotion) {
+  document.querySelectorAll('[data-tilt]').forEach(element => {
+    element.addEventListener('mousemove', e => {
+      const rect = element.getBoundingClientRect();
+
+      const x = (e.clientX - rect.left) / rect.width;
+      const y = (e.clientY - rect.top) / rect.height;
+
+      const rotateY = (x - .5) * 22;
+      const rotateX = (.5 - y) * 18;
+
+      element.style.setProperty('--tilt-x', rotateX + 'deg');
+      element.style.setProperty('--tilt-y', rotateY + 'deg');
+
+      if (element.classList.contains('book-scene')) {
+        const book = element.querySelector('.book');
+        book.style.animation = 'none';
+        book.style.transform =
+          `rotateX(${rotateX}deg) rotateY(${-22 + rotateY}deg)`;
+      } else {
+        element.style.transform =
+          `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
+      }
+    });
+
+    element.addEventListener('mouseleave', () => {
+      if (element.classList.contains('book-scene')) {
+        const book = element.querySelector('.book');
+        book.style.animation = '';
+        book.style.transform = '';
+      } else {
+        element.style.transform = '';
+      }
+    });
+  });
+}
+
+/* FAQ ACCORDION */
+
+document.querySelectorAll('.faq-question').forEach(button => {
+  button.addEventListener('click', () => {
+    const item = button.closest('.faq-item');
+    const isActive = item.classList.contains('active');
+
+    document.querySelectorAll('.faq-item').forEach(other => {
+      other.classList.remove('active');
+      other.querySelector('.faq-question').setAttribute('aria-expanded','false');
+    });
+
+    if (!isActive) {
+      item.classList.add('active');
+      button.setAttribute('aria-expanded','true');
+    }
+  });
+});
+
+/* FLOATING PARTICLES */
+
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+
+let particles = [];
+let width, height;
+
+function resizeCanvas() {
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+  width = window.innerWidth;
+  height = window.innerHeight;
+
+  canvas.width = width * dpr;
+  canvas.height = height * dpr;
+
+  canvas.style.width = width + 'px';
+  canvas.style.height = height + 'px';
+
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+}
+
+function createParticles() {
+  particles = Array.from({length:35}, () => ({
+    x:Math.random()*width,
+    y:Math.random()*height,
+    size:Math.random()*2+0.5,
+    speed:Math.random()*.35+.08,
+    alpha:Math.random()*.4+.1,
+    phase:Math.random()*Math.PI*2
+  }));
+}
+
+function drawParticles() {
+  ctx.clearRect(0,0,width,height);
+
+  particles.forEach(p => {
+    p.y -= p.speed;
+    p.phase += .015;
+    p.x += Math.sin(p.phase)*.15;
+
+    if (p.y < -10) {
+      p.y = height+10;
+      p.x = Math.random()*width;
+    }
+
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+    ctx.fillStyle = `rgba(199,127,150,${p.alpha})`;
+    ctx.fill();
+  });
+
+  if (!reduceMotion) requestAnimationFrame(drawParticles);
+}
+
+resizeCanvas();
+createParticles();
+
+window.addEventListener('resize', () => {
+  resizeCanvas();
+  createParticles();
+});
+
+if (!reduceMotion) {
+  drawParticles();
+} else {
+  drawParticles();
+}
+
+/* MAGNETIC BUTTON EFFECT */
+
+if (canHover && !reduceMotion) {
+  document.querySelectorAll('.button').forEach(button => {
+    button.addEventListener('mousemove', e => {
+      const rect = button.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width/2;
+      const y = e.clientY - rect.top - rect.height/2;
+
+      button.style.transform =
+        `translate(${x*.08}px,${y*.08}px)`;
+    });
+
+    button.addEventListener('mouseleave', () => {
+      button.style.transform = '';
+    });
+  });
+}
+</script>
+
+</body>
+</html>
